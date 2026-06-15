@@ -1,94 +1,61 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 
-interface ComingSoonProps {
+type ComingSoonProps = {
   title?: string;
   description?: string;
-}
+};
 
 export default function ComingSoon({
   title = "Coming Soon",
-  description = "We&apos;re building this page for Miraj Builders. Please check back soon.",
+  description = "We're building this page for Miraj Builders. Please check back soon.",
 }: ComingSoonProps) {
   return (
-    <main className="min-h-screen bg-brand-900 flex flex-col items-center justify-center px-6 py-20 relative overflow-hidden">
-      {/* Background decorative gradient orbs */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
-        style={{ background: "var(--color-accent-500)" }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-5 translate-x-1/3 translate-y-1/3"
-        style={{ background: "var(--color-accent-500)" }}
-        aria-hidden="true"
-      />
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-900 px-6 py-16 text-center text-surface-50">
+      <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-100/10" />
+      <div className="absolute bottom-0 right-0 h-72 w-72 translate-x-1/3 translate-y-1/3 rounded-full bg-brand-100/10" />
 
-      <div className="relative z-10 flex flex-col items-center text-center max-w-2xl w-full">
-        {/* Monogram Badge */}
-        <div className="mb-8 flex items-center justify-center w-20 h-20 rounded-full border-2 border-accent-500 bg-brand-700">
-          <span
-            className="text-accent-500 text-2xl font-bold tracking-widest"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            {SITE.shortName}
-          </span>
-        </div>
+      <section className="relative z-10 mx-auto w-full max-w-4xl">
+        <Image
+          src={SITE.assets.logoTransparent}
+          alt={`${SITE.name} logo`}
+          width={260}
+          height={260}
+          priority
+          className="mx-auto h-auto w-40 sm:w-48 md:w-56"
+        />
 
-        {/* Divider line */}
-        <div className="w-16 h-px bg-accent-500 mb-8 opacity-60" />
+        <div className="mx-auto mt-8 h-px w-20 bg-accent-500" />
 
-        {/* Heading */}
-        <h1
-          className="text-4xl sm:text-5xl font-bold text-surface-50 mb-6 leading-tight"
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
+        <h1 className="mt-10 font-heading text-4xl font-bold tracking-tight text-surface-50 sm:text-5xl md:text-6xl">
           {title}
         </h1>
 
-        {/* Description */}
-        <p className="text-ink-300 text-lg leading-relaxed mb-10 max-w-prose">
+        <p className="mx-auto mt-6 max-w-2xl font-body text-base leading-8 text-surface-50/75 sm:text-lg">
           {description}
         </p>
 
-        {/* CTA — back to home */}
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 px-8 py-3 bg-accent-500 text-brand-900 font-semibold rounded-button hover:bg-accent-600 transition-colors duration-200"
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
-          Back to Home
-        </Link>
-
-        {/* Divider */}
-        <div className="w-full h-px bg-brand-700 my-12" />
-
-        {/* Contact line */}
-        <p className="text-ink-300 text-sm">
-          Questions?{" "}
-          <a
-            href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-            className="text-accent-500 hover:text-accent-600 transition-colors"
+        <div className="mt-10">
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center rounded-button bg-accent-500 px-8 py-4 font-body text-sm font-bold text-brand-900 shadow-card transition hover:bg-accent-600"
           >
-            {SITE.phone}
-          </a>{" "}
-          &nbsp;&middot;&nbsp;{" "}
-          <a
-            href={`mailto:${SITE.email}`}
-            className="text-accent-500 hover:text-accent-600 transition-colors"
-          >
-            {SITE.email}
-          </a>
+            Back to Home
+          </Link>
+        </div>
+
+        <div className="mx-auto mt-14 h-px max-w-3xl bg-brand-100/20" />
+
+        <p className="mt-8 font-body text-sm text-surface-50/70">
+          Questions? {SITE.phone} <span className="mx-2 text-accent-500">•</span>{" "}
+          {SITE.email}
         </p>
 
-        {/* Brand tagline */}
-        <p
-          className="mt-8 text-ink-500 text-xs tracking-widest uppercase"
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
+        <p className="mt-8 font-heading text-xs uppercase tracking-[0.3em] text-surface-50/35">
           {SITE.tagline}
         </p>
-      </div>
+      </section>
     </main>
   );
 }

@@ -10,4 +10,9 @@ export const SITE = {
     instagram: "#",
     facebook: "#",
   },
+  assets: {
+    logoBlue: "/brand/logo-blue.png",
+    logoTransparent: "/brand/logo-transparent.png",
+    favicon: "/icon.png",
+  },
 } as const;

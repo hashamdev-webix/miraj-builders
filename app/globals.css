@@ -2,20 +2,20 @@
 
 @theme {
   /* BRAND COLORS */
-  --color-brand-900: #0F2438;
-  --color-brand-700: #1C3A55;
-  --color-brand-100: #E8EEF3;
+  --color-brand-900: #021F4F;   /* Primary Navy — header, footer, nav, hero overlay, section titles */
+  --color-brand-700: #0A3478;   /* Navy hover/support tone */
+  --color-brand-100: #E7EEF8;   /* Navy tint — soft backgrounds */
 
-  --color-accent-500: #C9A227;
-  --color-accent-600: #A98A1F;
-  --color-accent-100: #F7F0DC;
+  --color-accent-500: #D4A63A;  /* Luxury Gold — buttons, icons, hover effects, important text, borders */
+  --color-accent-600: #B88C24;  /* Gold hover/support tone */
+  --color-accent-100: #FBF2DA;  /* Gold tint — badges, soft highlights */
 
-  --color-surface-50:  #FAFAF8;
-  --color-surface-100: #F2F1ED;
+  --color-surface-50:  #F8F9FA; /* Soft White — content sections, listings, forms */
+  --color-surface-100: #EEF1F5; /* Alt section background */
 
-  --color-ink-900: #16181D;
-  --color-ink-500: #5B6470;
-  --color-ink-300: #A6ADB8;
+  --color-ink-900: #1F2937;     /* Dark text — paragraphs, property details, blog content */
+  --color-ink-500: #5B6470;     /* Secondary text */
+  --color-ink-300: #A6ADB8;     /* Placeholder / disabled */
 
   --color-success-500: #1E8E5A;
   --color-warning-500: #D98E04;
@@ -29,7 +29,7 @@
   /* SHAPE */
   --radius-card: 1rem;
   --radius-button: 0.625rem;
-  --shadow-card: 0 2px 16px rgb(15 36 56 / 0.07);
+  --shadow-card: 0 2px 16px rgb(2 31 79 / 0.07);
 }
 
 :root {

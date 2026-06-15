@@ -1,4 +1,10 @@
 import ComingSoon from "@/components/ComingSoon";
+import { createComingSoonMetadata } from "@/lib/metadata";
+
+export const metadata = createComingSoonMetadata(
+  "Miraj Builders Website Coming Soon",
+  "The Miraj Builders public website is being prepared."
+);
 
 export default function HomePage() {
   return (
