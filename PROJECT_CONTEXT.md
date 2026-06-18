@@ -10,8 +10,8 @@ The Home and About pages are the canonical visual references. New pages must ext
 
 ## Current State
 
-- Fully designed pages: Home (`/`) and About (`/about/`)
-- Services hub route: `/services/` (placeholder until approved SEO content is supplied)
+- Fully designed pages: Home (`/`), About (`/about/`), and Services (`/services/`)
+- Services hub: `/services/`, with reusable featured, medium, and compact service cards
 - Individual service route system: `/services/[slug]/`
 - Separate priority-service route: `/turnkey-construction/`
 - Other top-level pages currently use the shared `ComingSoon` placeholder
@@ -40,7 +40,7 @@ app/
   globals.css                  Tailwind import, design tokens, base styles
   page.tsx                     Home page composition and SEO
   about/page.tsx               About page composition and SEO
-  services/page.tsx            Services hub placeholder
+  services/page.tsx            Services hub composition, metadata, and schema
   services/[slug]/page.tsx     Dynamic individual service placeholders
   */page.tsx                   Other top-level routes
   not-found.tsx                Shared not-found presentation
@@ -51,6 +51,9 @@ components/
   ComingSoon.tsx               Shared placeholder page
   home/                        Home-specific sections and shared SectionHeader
   about/                       About-specific sections
+  services/                    Services Hub sections, content, and service cards
+  FaqAccordion.tsx             Reusable FAQ accordion with FAQPage schema
+  ProcessTimeline.tsx          Reusable five-step process timeline
 
 lib/
   site.ts                      Brand, contact, social, and asset constants
@@ -416,14 +419,16 @@ Page-specific components should live in a route-oriented folder under `component
 - Remove duplicated brand text from About and placeholder-page titles while preserving the global title template.
 - Implement real content and indexable metadata for all placeholder routes.
 
-## Services Hub Implementation Note
+## Services Hub Implementation
 
-`/services/` is intentionally still a branded placeholder. The Header now links to it directly while preserving the desktop mega menu and mobile category list.
+`/services/` is an indexable Services Hub built from the approved SEO document. It includes:
 
-When the approved Services SEO/content document arrives:
+1. A split dark hero with the approved H1, introduction, and CTAs.
+2. Large core-service cards for Turnkey, Grey Structure, and New Home Construction.
+3. Medium Design & Planning and Renovation cards.
+4. Compact Finishing & Installation service cards.
+5. The shared five-step process timeline.
+6. A page-specific FAQ accordion with FAQPage structured data.
+7. A dark final CTA.
 
-1. Replace the placeholder with the real Services Hub.
-2. Create page-specific metadata, canonical, Open Graph data, and any justified structured data.
-3. Preserve the supplied heading hierarchy and important SEO language.
-4. Build the page from Home/About patterns and existing service taxonomy.
-5. Keep individual service routes under the existing routing architecture unless the approved content requires a deliberate change.
+Service-card content is stored in `components/services/serviceContent.ts`, while `ServiceCard.tsx` provides featured, medium, and compact variants. Keep future Services Hub edits aligned with this data/component split. Individual service routes remain under the existing routing architecture.

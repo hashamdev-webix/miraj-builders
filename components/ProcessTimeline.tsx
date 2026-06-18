@@ -1,6 +1,12 @@
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "@/components/home/SectionHeader";
 
-const steps = [
+export type ProcessStep = {
+  num: string;
+  stage: string;
+  copy: string;
+};
+
+const defaultSteps: ProcessStep[] = [
   {
     num: "01",
     stage: "Consultation",
@@ -28,22 +34,31 @@ const steps = [
   },
 ];
 
-export default function ProcessTimeline() {
+type ProcessTimelineProps = {
+  steps?: ProcessStep[];
+  eyebrow?: string;
+  title?: string;
+  sectionClassName?: string;
+};
+
+export default function ProcessTimeline({
+  steps = defaultSteps,
+  eyebrow = "Our Process",
+  title = "Our Design to Final Handover Process",
+  sectionClassName = "bg-surface-50",
+}: ProcessTimelineProps) {
   return (
-    <section className="bg-surface-50 py-16 lg:py-24">
+    <section className={`${sectionClassName} py-16 lg:py-24`}>
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader
-          eyebrow="Our Process"
-          title="Our Design to Final Handover Process"
-        />
+        <SectionHeader eyebrow={eyebrow} title={title} />
 
         <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
-          {steps.map((step, i) => (
+          {steps.map((step, index) => (
             <div
               key={step.num}
               className="relative flex flex-col items-center text-center"
             >
-              {i < steps.length - 1 ? (
+              {index < steps.length - 1 ? (
                 <span
                   className="absolute left-1/2 top-8 hidden h-px w-[calc(100%+2.5rem)] bg-ink-300/30 lg:block"
                   aria-hidden
