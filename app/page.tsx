@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
 import HomeHero from "@/components/home/HomeHero";
+import AboutSection from "@/components/home/AboutSection";
 import ServicesOverview from "@/components/home/ServicesOverview";
 import FinishingStrip from "@/components/home/FinishingStrip";
 import ProcessTimeline from "@/components/home/ProcessTimeline";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import AreasWeServe from "@/components/home/AreasWeServe";
 import FaqAccordion from "@/components/home/FaqAccordion";
+import Testimonials from "@/components/home/Testimonials";
 import HomeCTA from "@/components/home/HomeCTA";
 
 export const metadata: Metadata = {
@@ -54,12 +56,14 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
       <HomeHero />
+      <AboutSection />
       <ServicesOverview />
       <FinishingStrip />
       <ProcessTimeline />
       <WhyChooseUs />
       <AreasWeServe />
       <FaqAccordion />
+      <Testimonials />
       <HomeCTA />
     </>
   );
