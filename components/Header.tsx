@@ -135,14 +135,17 @@ export default function Header() {
           </Link>
 
           {/* Services with mega menu */}
-          <div className="relative">
-            <button
-              type="button"
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesMenuOpen(true)}
+            onMouseLeave={() => setServicesMenuOpen(false)}
+          >
+            <Link
+              href="/services/"
               className={getServicesButtonClass()}
               aria-expanded={servicesMenuOpen}
               aria-current={isServicesRouteActive ? "page" : undefined}
-              onMouseEnter={() => setServicesMenuOpen(true)}
-              onMouseLeave={() => setServicesMenuOpen(false)}
+              onFocus={() => setServicesMenuOpen(true)}
             >
               Services
               <svg
@@ -157,14 +160,12 @@ export default function Header() {
                   clipRule="evenodd"
                 />
               </svg>
-            </button>
+            </Link>
 
             {/* Mega menu dropdown */}
             {servicesMenuOpen && (
               <div
                 className="fixed left-1/2 top-20 z-50 w-[min(1120px,calc(100vw-2rem))] -translate-x-1/2 max-h-[72vh] overflow-y-auto rounded-b-card border border-brand-100 bg-surface-50 p-8 shadow-card"
-                onMouseEnter={() => setServicesMenuOpen(true)}
-                onMouseLeave={() => setServicesMenuOpen(false)}
               >
                 <div className="grid gap-6 lg:grid-cols-3 xl:grid-cols-5">
                   {SERVICE_GROUPS.map((group) => (
@@ -269,15 +270,14 @@ export default function Header() {
 
             {/* Services section in mobile */}
             <div className="space-y-2">
-              <div
-                className={`px-4 py-3 text-sm font-semibold ${
-                  isServicesRouteActive
-                    ? "!bg-accent-500 !text-brand-900"
-                    : "!text-surface-50"
-                }`}
+              <Link
+                href="/services/"
+                className={getMobileNavClass(isServicesRouteActive)}
+                onClick={() => setMobileMenuOpen(false)}
+                aria-current={isServicesRouteActive ? "page" : undefined}
               >
                 Services
-              </div>
+              </Link>
               {SERVICE_GROUPS.map((group) => (
                 <div key={group.title} className="space-y-1 pl-3">
                   <div className="px-3 py-1 font-body text-xs font-bold uppercase tracking-[0.18em] text-accent-500/70">
