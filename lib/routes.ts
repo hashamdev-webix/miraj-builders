@@ -15,12 +15,12 @@ export type ServiceGroup = {
 
 export const PUBLIC_ROUTES: RouteItem[] = [
   { title: "Home", href: "/" },
+  { title: "About Us", href: "/about/" },
   { title: "Services", href: "/services/" },
   { title: "Projects", href: "/projects/" },
   { title: "Construction Rates", href: "/construction-rates/" },
   { title: "Our Process", href: "/process/" },
   { title: "Blog", href: "/blog/" },
-  { title: "About", href: "/about/" },
   { title: "Contact", href: "/contact/" },
   { title: "Book Consultation", href: "/booking/" },
   { title: "Turnkey Construction", href: "/turnkey-construction/" },
@@ -234,8 +234,8 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
 
 // ─── Flat list of all service routes (with slugs only) ────────────────────────
 
-export const ALL_SERVICE_ROUTES: RouteItem[] = SERVICE_GROUPS.flatMap(
-  (group) => group.items.filter((item) => item.slug !== undefined)
+export const ALL_SERVICE_ROUTES: RouteItem[] = SERVICE_GROUPS.flatMap((group) =>
+  group.items.filter((item) => item.slug !== undefined),
 );
 
 // ─── Helper ───────────────────────────────────────────────────────────────────

@@ -97,7 +97,7 @@ export default function Footer() {
                   href="/about/"
                   className="font-body text-sm text-surface-50/80 transition hover:text-accent-500"
                 >
-                  About
+                  About Us
                 </Link>
               </li>
               <li>

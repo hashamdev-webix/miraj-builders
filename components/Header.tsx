@@ -126,6 +126,14 @@ export default function Header() {
             Home
           </Link>
 
+          <Link
+            href="/about/"
+            className={getDesktopNavClass(isExactActive("/about"))}
+            aria-current={isExactActive("/about") ? "page" : undefined}
+          >
+            About Us
+          </Link>
+
           {/* Services with mega menu */}
           <div className="relative">
             <button
@@ -215,13 +223,6 @@ export default function Header() {
             Our Process
           </Link>
           <Link
-            href="/about/"
-            className={getDesktopNavClass(isExactActive("/about"))}
-            aria-current={isExactActive("/about") ? "page" : undefined}
-          >
-            About
-          </Link>
-          <Link
             href="/contact/"
             className={getDesktopNavClass(isExactActive("/contact"))}
             aria-current={isExactActive("/contact") ? "page" : undefined}
@@ -255,6 +256,15 @@ export default function Header() {
               aria-current={isExactActive("/") ? "page" : undefined}
             >
               Home
+            </Link>
+
+            <Link
+              href="/about/"
+              className={getMobileNavClass(isExactActive("/about"))}
+              onClick={() => setMobileMenuOpen(false)}
+              aria-current={isExactActive("/about") ? "page" : undefined}
+            >
+              About Us
             </Link>
 
             {/* Services section in mobile */}
@@ -321,14 +331,6 @@ export default function Header() {
               aria-current={isExactActive("/process") ? "page" : undefined}
             >
               Our Process
-            </Link>
-            <Link
-              href="/about/"
-              className={getMobileNavClass(isExactActive("/about"))}
-              onClick={() => setMobileMenuOpen(false)}
-              aria-current={isExactActive("/about") ? "page" : undefined}
-            >
-              About
             </Link>
             <Link
               href="/contact/"
