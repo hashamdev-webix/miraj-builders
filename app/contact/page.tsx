@@ -45,6 +45,8 @@ const contactPageJsonLd = {
     areaServed: "Pakistan",
     address: {
       "@type": "PostalAddress",
+      addressLocality: "Dunyapur",
+      addressRegion: "Punjab",
       addressCountry: "PK",
     },
     contactPoint: {

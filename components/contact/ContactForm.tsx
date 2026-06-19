@@ -190,7 +190,7 @@ export default function ContactForm() {
                 type="tel"
                 inputMode="tel"
                 autoComplete="tel"
-                placeholder="+92 300 0000000"
+                placeholder={SITE.phone}
                 className={fieldClassName}
                 aria-invalid={Boolean(errors.phone)}
                 aria-describedby={errors.phone ? "phone-error" : undefined}

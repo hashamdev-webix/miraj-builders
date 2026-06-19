@@ -413,7 +413,7 @@ Page-specific components should live in a route-oriented folder under `component
 ## Known Pre-Launch Items
 
 - Confirm the tagline in `lib/site.ts`.
-- Replace placeholder phone, WhatsApp, email, address, and social links.
+- Add the final Facebook and Instagram profile URLs in `lib/site.ts`.
 - Replace placeholder testimonials with real client testimonials.
 - Confirm the project, experience, client, and worker statistics.
 - Update hardcoded Vercel URLs in JSON-LD to the final canonical domain.

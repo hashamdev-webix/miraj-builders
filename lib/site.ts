@@ -2,14 +2,14 @@ export const SITE = {
   name: "Miraj Builders",
   shortName: "MB",
   tagline: "Building Spaces That Last", // TODO: confirm final tagline
-  phone: "+92 300 0000000", // TODO: replace with real phone number
-  whatsapp: "923000000000", // TODO: replace with real WhatsApp number
-  email: "info@mirajbuilders.com", // TODO: replace with real email
-  address: "Pakistan", // TODO: replace with exact city/address
+  phone: "03002026711",
+  whatsapp: "923002026711",
+  email: "mirajbuildersofficial@gmail.com",
+  address: "Dunyapur, Punjab, Pakistan",
   workingHours: "Monday to Saturday",
   socials: {
-    instagram: "#",
-    facebook: "#",
+    instagram: "/",
+    facebook: "/",
   },
   assets: {
     logoBlue: "/brand/logo-blue.png",
