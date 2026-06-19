@@ -10,7 +10,7 @@ The Home and About pages are the canonical visual references. New pages must ext
 
 ## Current State
 
-- Fully designed pages: Home (`/`), About (`/about/`), Services (`/services/`), and Contact (`/contact/`)
+- Fully designed pages: Home (`/`), About (`/about/`), Services (`/services/`), Contact (`/contact/`), and Our Process (`/process/`)
 - Services hub: `/services/`, with reusable featured, medium, and compact service cards
 - Individual service route system: `/services/[slug]/`
 - Separate priority-service route: `/turnkey-construction/`
@@ -41,6 +41,7 @@ app/
   page.tsx                     Home page composition and SEO
   about/page.tsx               About page composition and SEO
   services/page.tsx            Services hub composition, metadata, and schema
+  process/page.tsx             Our Process composition, metadata, and schema
   services/[slug]/page.tsx     Dynamic individual service placeholders
   */page.tsx                   Other top-level routes
   not-found.tsx                Shared not-found presentation
@@ -53,6 +54,7 @@ components/
   about/                       About-specific sections
   services/                    Services Hub sections, content, and service cards
   contact/                     Contact hero, details, validated form, location, and CTA
+  process/                     Process hero, phase timelines, tracking preview, and CTA
   FaqAccordion.tsx             Reusable FAQ accordion with FAQPage schema
   ProcessTimeline.tsx          Reusable five-step process timeline
 
@@ -148,10 +150,10 @@ Path matching normalizes trailing slashes. Any route under `/services/`, plus `/
 
 `components/Footer.tsx` uses a four-column desktop layout:
 
-- Brand summary and contact details
+- Brand summary and social links
 - Priority services from the first `SERVICE_GROUPS` group
 - Company navigation
-- Repeated contact information
+- Centralized contact information
 
 It collapses naturally on smaller screens. Contact and brand data come from `lib/site.ts`; do not hardcode replacements inside the Footer.
 
@@ -197,6 +199,23 @@ The About page confirms the inner-page language:
 4. White feature cards on soft grey
 5. Icon-led differentiator cards
 6. Dark closing CTA
+
+### Our Process page flow
+
+The Process page turns a long operational workflow into modular, responsive sections:
+
+1. Established dark split hero with process introduction and two CTAs
+2. Four-card client clarity strip
+3. Reusable eight-step Phase 0 pre-project timeline
+4. Design approval highlight panel
+5. Reusable eight-step Phase 1 construction timeline
+6. Compact electrical, plumbing, and solar service timelines
+7. CSS-built dashboard/mobile tracking preview with visible tracking features
+8. Payment and milestone update panel
+9. Four-card process benefits grid
+10. Image-backed closing CTA with booking and WhatsApp actions
+
+Process copy is centralized in `components/process/processContent.ts`. The dashboard artwork is a presentational preview only; no authenticated dashboard or mobile application is implemented in this repository.
 
 ### Core composition rules
 
@@ -344,6 +363,8 @@ Home uses an absolute title to bypass the global title template. About currently
 - Home includes `GeneralContractor` JSON-LD.
 - Home FAQ includes `FAQPage` JSON-LD.
 - About includes `AboutPage` JSON-LD with a `GeneralContractor` main entity.
+- Services includes `CollectionPage` JSON-LD with its visible service list.
+- Our Process includes `WebPage` JSON-LD with an `ItemList` of the 16 visible pre-project and construction stages.
 
 Structured data is rendered as `<script type="application/ld+json">`. It must accurately reflect visible content.
 
@@ -385,6 +406,8 @@ Use these existing patterns before creating new abstractions:
 - `WhyChooseUs` / `WhatMakesUsDifferent` for icon feature grids
 - `FinishingStrip` for compact service tiles
 - `ProcessTimeline` for ordered multi-step content
+- `components/process/PhaseTimeline.tsx` for longer eight-step project phases
+- `components/process/processContent.ts` for process stages, tracking features, service timelines, and benefit data
 - `FaqAccordion` for interactive FAQs and FAQ schema
 - `HomeCTA` / `AboutCTA` for dark closing conversion bands
 - `ComingSoon` plus `createComingSoonMetadata` for unfinished pages
