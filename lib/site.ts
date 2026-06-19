@@ -6,6 +6,7 @@ export const SITE = {
   whatsapp: "923000000000", // TODO: replace with real WhatsApp number
   email: "info@mirajbuilders.com", // TODO: replace with real email
   address: "Pakistan", // TODO: replace with exact city/address
+  workingHours: "Monday to Saturday",
   socials: {
     instagram: "#",
     facebook: "#",

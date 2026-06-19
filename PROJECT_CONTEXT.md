@@ -10,7 +10,7 @@ The Home and About pages are the canonical visual references. New pages must ext
 
 ## Current State
 
-- Fully designed pages: Home (`/`), About (`/about/`), and Services (`/services/`)
+- Fully designed pages: Home (`/`), About (`/about/`), Services (`/services/`), and Contact (`/contact/`)
 - Services hub: `/services/`, with reusable featured, medium, and compact service cards
 - Individual service route system: `/services/[slug]/`
 - Separate priority-service route: `/turnkey-construction/`
@@ -52,6 +52,7 @@ components/
   home/                        Home-specific sections and shared SectionHeader
   about/                       About-specific sections
   services/                    Services Hub sections, content, and service cards
+  contact/                     Contact hero, details, validated form, location, and CTA
   FaqAccordion.tsx             Reusable FAQ accordion with FAQPage schema
   ProcessTimeline.tsx          Reusable five-step process timeline
 
@@ -432,3 +433,16 @@ Page-specific components should live in a route-oriented folder under `component
 7. A dark final CTA.
 
 Service-card content is stored in `components/services/serviceContent.ts`, while `ServiceCard.tsx` provides featured, medium, and compact variants. Keep future Services Hub edits aligned with this data/component split. Individual service routes remain under the existing routing architecture.
+
+## Contact Page Implementation
+
+`/contact/` is an indexable, conversion-focused contact page built from the approved SEO document. It includes:
+
+1. A split dark hero with the approved H1, introduction, and CTA labels.
+2. A two-column contact-information and project-estimate section.
+3. A client-side validated form with all approved fields and service options.
+4. A “Why Contact Miraj Builders?” trust section.
+5. A branded office-location placeholder and visit-booking content.
+6. A dark project-consultation CTA.
+
+The current project has no submission API. `ContactForm.tsx` therefore validates locally and prepares a prefilled email in the visitor’s default email application. Replace this mailto workflow with a real API/server action when a lead-delivery backend is approved. Real phone, WhatsApp, email, and office-address values must be updated centrally in `lib/site.ts`.
