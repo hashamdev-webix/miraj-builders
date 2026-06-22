@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -10,6 +10,22 @@ import { SERVICE_GROUPS } from "@/lib/routes";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openServices = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setServicesMenuOpen(true);
+  };
+
+  const closeServices = () => {
+    closeTimer.current = setTimeout(() => setServicesMenuOpen(false), 150);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
+  }, []);
 
   const pathname = usePathname();
 
@@ -137,15 +153,16 @@ export default function Header() {
           {/* Services with mega menu */}
           <div
             className="relative"
-            onMouseEnter={() => setServicesMenuOpen(true)}
-            onMouseLeave={() => setServicesMenuOpen(false)}
+            onMouseEnter={openServices}
+            onMouseLeave={closeServices}
           >
             <Link
               href="/services/"
               className={getServicesButtonClass()}
               aria-expanded={servicesMenuOpen}
               aria-current={isServicesRouteActive ? "page" : undefined}
-              onFocus={() => setServicesMenuOpen(true)}
+              onFocus={openServices}
+              onBlur={closeServices}
             >
               Services
               <svg
@@ -166,6 +183,8 @@ export default function Header() {
             {servicesMenuOpen && (
               <div
                 className="fixed left-1/2 top-20 z-50 w-[min(1120px,calc(100vw-2rem))] -translate-x-1/2 max-h-[72vh] overflow-y-auto rounded-b-card border border-brand-100 bg-surface-50 p-8 shadow-card"
+                onMouseEnter={openServices}
+                onMouseLeave={closeServices}
               >
                 <div className="grid gap-6 lg:grid-cols-3 xl:grid-cols-5">
                   {SERVICE_GROUPS.map((group) => (
