@@ -45,7 +45,7 @@ export default function ProcessTimeline({
   steps = defaultSteps,
   eyebrow = "Our Process",
   title = "Our Design to Final Handover Process",
-  sectionClassName = "bg-surface-50",
+  sectionClassName = "bg-surface-100",
 }: ProcessTimelineProps) {
   return (
     <section className={`${sectionClassName} py-16 lg:py-24`}>
