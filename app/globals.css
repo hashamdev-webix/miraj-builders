@@ -57,3 +57,19 @@ a {
   background: var(--color-accent-100);
   color: var(--color-brand-900);
 }
+
+.admin-stat-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
+@media (min-width: 1500px) {
+  .admin-stat-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1800px) {
+  .admin-stat-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
