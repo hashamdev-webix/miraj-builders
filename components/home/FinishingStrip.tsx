@@ -39,7 +39,7 @@ const finishing = [
 
 export default function FinishingStrip() {
   return (
-    <section className="bg-surface-100 py-12">
+    <section className="bg-surface-50 py-12">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-8 text-center">
           <span className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-accent-500">

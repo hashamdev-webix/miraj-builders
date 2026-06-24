@@ -64,7 +64,7 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="bg-surface-50 py-16 lg:py-24">
+    <section className="bg-surface-100 py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           eyebrow="Our Services"
