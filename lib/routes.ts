@@ -34,7 +34,7 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
     items: [
       {
         title: "Turnkey Construction",
-        href: "/turnkey-construction/",
+        href: "/services/turnkey-construction/",
         description:
           "Complete end-to-end construction from foundation to handover.",
         priority: true,

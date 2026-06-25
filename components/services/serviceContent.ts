@@ -22,7 +22,7 @@ export const coreServices: ServiceCardData[] = [
       "A complete start-to-finish construction solution for clients who want one team to manage the full project. Our turnkey construction service covers design, grey structure, finishing, interiors, plumbing, painting, flooring, woodwork, installations, and handover.",
     bestFor:
       "Complete homes, villas, offices, commercial buildings, and full project management.",
-    href: "/turnkey-construction/",
+    href: "/services/turnkey-construction/",
     ctaLabel: "View Turnkey Construction",
     icon: KeyRound,
     image: "/home/services/turnkey.jpg",

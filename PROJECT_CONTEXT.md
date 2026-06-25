@@ -13,7 +13,7 @@ The Home and About pages are the canonical visual references. New pages must ext
 - Fully designed pages: Home (`/`), About (`/about/`), Services (`/services/`), Contact (`/contact/`), and Our Process (`/process/`)
 - Services hub: `/services/`, with reusable featured, medium, and compact service cards
 - Individual service route system: `/services/[slug]/`
-- Separate priority-service route: `/turnkey-construction/`
+- Turnkey Construction is implemented as a dedicated canonical service page at `/services/turnkey-construction/`; the older `/turnkey-construction/` route redirects to it.
 - Other top-level pages currently use the shared `ComingSoon` placeholder
 - Header and footer are global through the root layout
 
@@ -86,7 +86,7 @@ Routes are listed centrally in `lib/routes.ts` as `PUBLIC_ROUTES`, while actual 
 - `/blog/`
 - `/contact/`
 - `/booking/`
-- `/turnkey-construction/`
+- `/services/turnkey-construction/`
 
 The Next.js configuration enables `trailingSlash: true`. Internal links and canonical paths should therefore use trailing slashes consistently, except the root `/`.
 
@@ -101,7 +101,7 @@ The Next.js configuration enables `trailingSlash: true`. Internal links and cano
 
 Items with a `slug` are collected into `ALL_SERVICE_ROUTES` and generated through `app/services/[slug]/page.tsx`. Unknown slugs call `notFound()`.
 
-The Turnkey Construction and Construction Rates items are intentional exceptions: they use dedicated top-level routes and therefore do not have dynamic service slugs.
+Construction Rates is an intentional exception that uses a dedicated top-level route. Turnkey Construction follows the canonical service URL `/services/turnkey-construction/` through a dedicated static service page; keep the old `/turnkey-construction/` route as a redirect only.
 
 When adding or renaming a service, update `SERVICE_GROUPS` first and ensure its `href`, `slug`, page route, metadata, and internal links agree.
 
