@@ -50,7 +50,6 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
       {
         title: "New Home Construction",
         href: "/services/new-home-construction/",
-        slug: "new-home-construction",
         description:
           "Full new residential builds designed and constructed to your brief.",
         priority: true,

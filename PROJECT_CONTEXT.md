@@ -10,7 +10,7 @@ The Home and About pages are the canonical visual references. New pages must ext
 
 ## Current State
 
-- Fully designed pages: Home (`/`), About (`/about/`), Services (`/services/`), Contact (`/contact/`), and Our Process (`/process/`)
+- Fully designed pages: Home (`/`), About (`/about/`), Services (`/services/`), Contact (`/contact/`), Our Process (`/process/`), and priority sub-service pages including Turnkey Construction, Grey Structure Construction, and New Home Construction
 - Services hub: `/services/`, with reusable featured, medium, and compact service cards
 - Individual service route system: `/services/[slug]/`
 - Turnkey Construction is implemented as a dedicated canonical service page at `/services/turnkey-construction/`; the older `/turnkey-construction/` route redirects to it.
